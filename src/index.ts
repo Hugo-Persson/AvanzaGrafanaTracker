@@ -14,12 +14,13 @@ class AvanzaConnector{
     this.app.listen(this.port, () => {
       console.log(`Example app listening on port ${this.port}`)
     })
-    this.app.get("/get-avanza-prom-info", this.getAvanzaPromInfo);    
+    this.app.get("/get-avanza-prom-info", this.getAvanzaPromInfo.bind(this));    
     
   }
   private async initAvanza(){
+    console.log("Init avanza");
     try{
-      const auth = await this.avanza.authenticate({
+      await this.avanza.authenticate({
         username: this.getEnv("USERNAME"),
         password: this.getEnv("PASSWORD"),
         totp:"",
@@ -31,7 +32,7 @@ class AvanzaConnector{
     }
   }
 
-  public async getAvanzaPromInfo(req: express.Request, res: express.Response){
+  private async getAvanzaPromInfo(req: express.Request, res: express.Response){
     let info = await this.avanza.getOverview();
     res.json(info);
 
