@@ -1,0 +1,24 @@
+{
+  "name": "networthgrafanatracker",
+  "version": "1.0.0",
+  "description": "Code that will track finance stuff such as account balances, loans, stock growth...",
+  "main": "./build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node ./src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hugo-Persson/NetWorthGrafanaTracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hugo-Persson/NetWorthGrafanaTracker/issues"
+  },
+  "homepage": "https://github.com/Hugo-Persson/NetWorthGrafanaTracker#readme",
+  "dependencies": {
+    "avanza": "^3.0.0"
+  }
+}
