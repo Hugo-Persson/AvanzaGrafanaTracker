@@ -1,3 +1,6 @@
+import { AccountDetails } from "./AccountDetails";
+import { Overview } from "./Overview";
+
 declare module 'avanza';
 export = Avanza;
 /**
@@ -147,13 +150,13 @@ declare class Avanza {
     /**
      * Get an overview of the users holdings at Avanza Bank.
      */
-    getOverview(): Promise<any>;
+    getOverview(): Promise<Overview>;
     /**
      * Get an overview of the users holdings for a specific account at Avanza Bank.
      * @param {String} accountId A valid account ID.
      *
      */
-    getAccountOverview(accountId: string): Promise<any>;
+    getAccountOverview(accountId: string): Promise<AccountDetails>;
     /**
      * Get recent deals and orders.
      */
