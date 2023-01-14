@@ -14,6 +14,7 @@ interface AvanzaAccount{
 interface AccountTrackers{
   totalProfit: prom.Gauge,
   totalBalance: prom.Gauge,
+  totalWorth: prom.Gauge,
   account: AvanzaAccount
 }
 
@@ -43,10 +44,15 @@ class AvanzaConnector{
         name: this.formatAccountNameToProm(account.name, "profit"),
         help: `The total profit of account:  ${account.name} `,
       });
+      const worth= new prom.Gauge({
+        name: this.formatAccountNameToProm(account.name, "worth"),
+        help: `The total worth of account:  ${account.name} `,
+      });
 
       this.gauges.set(account.id, {
         totalBalance: balance,
         totalProfit: profit,
+        totalWorth: worth,
         account: account,
       });
 
@@ -84,6 +90,7 @@ class AvanzaConnector{
       if(debug) console.log("Updating ", e.name);
       target.totalBalance.set(e.totalBalance);
       target.totalProfit.set(e.totalProfit);
+      target.totalWorth.set(e.ownCapital);
     })
   }
 
