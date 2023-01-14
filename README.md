@@ -3,8 +3,6 @@
 This project currently has a connector to Avanza that takes current balance of Avanza accounts and profit and displays that data at `/metrics`route.
 
 # Setup
-First
-
 To run the project the following env variables need to be set in a `.env` file variables needs to be set
 
 - USERNAME -  Your avanza username
