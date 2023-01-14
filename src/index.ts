@@ -94,7 +94,7 @@ class AvanzaConnector{
   
   public async init(){
     await this.initAvanza();
-    this.app.listen(this.port, () => {
+    this.app.listen(this.port,  "0.0.0.0", () => {
       console.log(`Example app listening on port ${this.port}`)
     })
     this.app.get("/metrics", this.metrics.bind(this));
